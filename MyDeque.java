@@ -22,7 +22,13 @@ public class MyDeque<E>{
     }
     return result + "}";
   }
-  public void resize(){}
+  public void resize(E[] input){
+    data = new E[size+1];
+    size++;
+    for(int i = start; i <= end; i++){
+      data[i] = input[i];
+    }
+  }
   public void addFirst(E element){ }
   public void addLast(E element){ }
   public E removeFirst(){ }
