@@ -21,6 +21,10 @@ public class MyDeque<E>{
   public void addLast(E element){ }
   public E removeFirst(){ }
   public E removeLast(){ }
-  public E getFirst(){ }
-  public E getLast(){ }
+  public E getFirst(){
+    return data[start];
+  }
+  public E getLast(){
+    return data[end];
+  }
 }
