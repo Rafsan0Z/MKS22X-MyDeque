@@ -2,7 +2,12 @@ public class MyDeque<E>{
   private E[] data;
   private int size, start, end;
 
-  public MyDeque(){  }
+  public MyDeque(){ 
+    data = new E[10];
+    size = 10;
+    start = 0;
+    end = 0;
+  }
   public MyDeque(int initialCapacity){ 
     data = new E[initialCapacity];
     size = initialCapacity;
