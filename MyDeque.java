@@ -10,7 +10,13 @@ public class MyDeque<E>{
     end = 0;
   }
   public int size(){ }
-  public String toString(){ }
+  public String toString(){
+    String result = "{";
+    for(int i = 0; i < size; i++){
+      result = data[i] + " ";
+    }
+    return result + "}";
+  }
   public void addFirst(E element){ }
   public void addLast(E element){ }
   public E removeFirst(){ }
