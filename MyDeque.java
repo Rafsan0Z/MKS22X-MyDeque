@@ -2,19 +2,23 @@ public class MyDeque<E>{
   private E[] data;
   private int size, start, end;
 
-  public MyDeque(){ 
+  public MyDeque(){
+    @SuppressWarnings("unchecked"); 
     data = new E[10];
     size = 10;
     start = 0;
     end = 0;
   }
   public MyDeque(int initialCapacity){ 
+    @SuppressWarnings("unchecked");
     data = new E[initialCapacity];
     size = initialCapacity;
     start = 0;
     end = 0;
   }
-  public int size(){ }
+  public int size(){
+    return size;
+  }
   public String toString(){
     String result = "{";
     for(int i = 0; i < size; i++){
@@ -25,7 +29,10 @@ public class MyDeque<E>{
   public void resize(E[] input){
     data = new E[size+1];
     size++;
-    for(int i = start; i <= end; i++){
+    for(int i = start; i < input.length; i++){
+      data[i] = input[i];
+    }
+    for(int i = 0; i <= end; i++){
       data[i] = input[i];
     }
   }
