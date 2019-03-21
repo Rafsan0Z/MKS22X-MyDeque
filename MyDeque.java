@@ -22,6 +22,7 @@ public class MyDeque<E>{
     }
     return result + "}";
   }
+  public void resize(){}
   public void addFirst(E element){ }
   public void addLast(E element){ }
   public E removeFirst(){ }
