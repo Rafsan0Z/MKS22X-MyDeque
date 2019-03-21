@@ -29,8 +29,14 @@ public class MyDeque<E>{
       data[i] = input[i];
     }
   }
-  public void addFirst(E element){ }
-  public void addLast(E element){ }
+  public void addFirst(E element){
+    data[start+1] = element;
+    start++;
+  }
+  public void addLast(E element){
+    data[end+1] = element;
+    end++;
+  }
   public E removeFirst(){ }
   public E removeLast(){ }
   public E getFirst(){
