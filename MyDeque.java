@@ -37,18 +37,22 @@ public class MyDeque<E>{
     }
   }
   public void addFirst(E element){
+    if(element == null){throw new NullPointerException();}
     data[start+1] = element;
     start++;
   }
   public void addLast(E element){
+    if(element == null){throw new NullPointerException();}
     data[end+1] = element;
     end++;
   }
   public E removeFirst(){
+    if(size == 0){throw new NoSuchElementException();}
     data[start] = null;
     start--;
   }
   public E removeLast(){
+    if(size == 0){throw new NoSuchElementException();}
     data[end] = null;
     end--;
   }
