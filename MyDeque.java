@@ -43,8 +43,10 @@ public class MyDeque<E>{
   }
   public void addLast(E element){
     if(element == null){throw new NullPointerException();}
-    data[end+1] = element;
     end++;
+    if(end = data.length){end = 0;}
+    data[end] = element;
+    size++;
   }
   public E removeFirst(){
     if(size == 0){throw new NoSuchElementException();}
