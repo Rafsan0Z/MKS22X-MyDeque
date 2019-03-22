@@ -38,6 +38,8 @@ public class MyDeque<E>{
   }
   public void addFirst(E element){
     if(element == null){throw new NullPointerException();}
+    end++;
+    if(end == data.length){end = 0;}
     data[end] = element;
     size++;
   }
