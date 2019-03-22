@@ -56,8 +56,11 @@ public class MyDeque<E>{
   }
   public E removeFirst(){
     if(size == 0){throw new NoSuchElementException();}
-    data[start] = null;
-    start--;
+    E result = getFirst();
+    data[end] = null;
+    end--;
+    size--;
+    return result;
   }
   public E removeLast(){
     if(size == 0){throw new NoSuchElementException();}
