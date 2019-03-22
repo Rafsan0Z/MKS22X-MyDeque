@@ -3,13 +3,13 @@ public class MyDeque<E>{
   private int size, start, end;
 
   public MyDeque(){
-    @SuppressWarnings("unchecked"); 
+    @SuppressWarnings("unchecked");
     data = new E[10];
     size = 10;
     start = 0;
     end = 0;
   }
-  public MyDeque(int initialCapacity){ 
+  public MyDeque(int initialCapacity){
     @SuppressWarnings("unchecked");
     data = new E[initialCapacity];
     size = initialCapacity;
@@ -53,9 +53,11 @@ public class MyDeque<E>{
     end--;
   }
   public E getFirst(){
+    if(size == 0){throw new NoSuchElementException();}
     return data[start];
   }
   public E getLast(){
+    if(size == 0){throw new NoSuchElementException();}
     return data[end];
   }
 }
