@@ -42,14 +42,16 @@ public class MyDeque<E>{
   public void addFirst(E element){
     if(element == null){throw new NullPointerException();}
     end++;
-    if(Math.abs(end-start) == 1){resize(data);}
     if(end == data.length){end = 0;}
+    if(Math.abs(end-start) == 1){resize(data);}
     data[end] = element;
     size++;
   }
   public void addLast(E element){
     if(element == null){throw new NullPointerException();}
     start--;
+    if(size < 0){size = data.length - 1;}
+    if(Math.abs(end-start) == 1){resize(data);}
     if(end = data.length){end = 0;}
     data[start] = element;
     size++;
