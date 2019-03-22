@@ -38,8 +38,8 @@ public class MyDeque<E>{
   }
   public void addFirst(E element){
     if(element == null){throw new NullPointerException();}
-    data[start+1] = element;
-    start++;
+    data[end] = element;
+    size++;
   }
   public void addLast(E element){
     if(element == null){throw new NullPointerException();}
