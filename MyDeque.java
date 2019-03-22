@@ -30,14 +30,17 @@ public class MyDeque<E>{
     return result + "}";
   }
   public void resize(E[] input){
-    data = new E[size+1];
-    size++;
-    for(int i = start; i < input.length; i++){
-      data[i] = input[i];
+    E[] import = new E[size+1];
+    for(int i = start+1; i < input.length; i++){
+      data[i] = input[i-1];
     }
     for(int i = 0; i <= end; i++){
       data[i] = input[i];
     }
+    data = new E[size+1];
+    data = import;
+    size++;
+    start++;
   }
   public void addFirst(E element){
     if(element == null){throw new NullPointerException();}
