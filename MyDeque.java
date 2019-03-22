@@ -5,14 +5,17 @@ public class MyDeque<E>{
   public MyDeque(){
     @SuppressWarnings("unchecked");
     data = new E[10];
-    size = 10;
+    size = 0;
     start = 0;
     end = 0;
   }
   public MyDeque(int initialCapacity){
+    if(initialCapacity <= 0){
+      throw new IllegalArgumentException();
+    }
     @SuppressWarnings("unchecked");
     data = new E[initialCapacity];
-    size = initialCapacity;
+    size = 0;
     start = 0;
     end = 0;
   }
