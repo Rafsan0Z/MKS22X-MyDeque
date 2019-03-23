@@ -31,16 +31,17 @@ public class MyDeque<E>{
     }
     return result + "}";
   }
+
   public void resize(E[] input){
-    E[] import = new E[size+1];
+    @SuppressWarnings("unchecked")
+    E[] d = (E[])new Object[size*2];
     for(int i = start+1; i < input.length; i++){
       data[i] = input[i-1];
     }
     for(int i = 0; i <= end; i++){
       data[i] = input[i];
     }
-    data = new E[size+1];
-    data = import;
+    data = d;
     size++;
     start++;
   }
