@@ -4,8 +4,8 @@ public class MyDeque<E>{
   private int size, start, end;
 
   public MyDeque(){
-    @SuppressWarnings("unchecked");
-    data = new E[10];
+    @SuppressWarnings("unchecked")
+    E[] d = (E[]) new Object[10];
     size = 0;
     start = 0;
     end = 0;
@@ -14,8 +14,9 @@ public class MyDeque<E>{
     if(initialCapacity <= 0){
       throw new IllegalArgumentException();
     }
-    @SuppressWarnings("unchecked");
-    data = new E[initialCapacity];
+    @SuppressWarnings("unchecked")
+    E[] d = (E[]) new Object[initialCapacity];
+    data = d;
     size = 0;
     start = 0;
     end = 0;
