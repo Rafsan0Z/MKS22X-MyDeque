@@ -11,13 +11,13 @@ public class MyDeque<E>{
     end = 0;
   }
   public MyDeque(int initialCapacity){
-    if(initialCapacity <= 0){
+    if(initialCapacity < 0){
       throw new IllegalArgumentException();
     }
     @SuppressWarnings("unchecked")
     E[] d = (E[]) new Object[initialCapacity];
     data = d;
-    size = 0;
+    size = initialCapacity/2;
     start = 0;
     end = 0;
   }
@@ -26,7 +26,7 @@ public class MyDeque<E>{
   }
   public String toString(){
     String result = "{";
-    for(int i = 0; i < size; i++){
+    for(int i = start; i < end; i++){
       result = data[i] + " ";
     }
     return result + "}";
