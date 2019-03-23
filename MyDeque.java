@@ -58,7 +58,7 @@ public class MyDeque<E>{
     start--;
     if(size < 0){size = data.length - 1;}
     if(Math.abs(end-start) == 1){resize(data);}
-    if(end = data.length){end = 0;}
+    if(end == data.length){end = 0;}
     data[start] = element;
     size++;
   }
