@@ -41,13 +41,13 @@ public class MyDeque<E>{
     return result + "}";
   }
 
-  public void resize(E[] input){
+  public void resize(){
     int counter = 0;
     boolean finished = false;
     @SuppressWarnings("unchecked")
     E[] output = (E[])new Object[capacity*2];
     for(int i = start; i < end; i++){
-      output[counter] = input[i];
+      output[counter] = data[i];
       counter++;
       if(i == capacity - 1){
         finished = true;
@@ -56,17 +56,19 @@ public class MyDeque<E>{
     }
     if(!finished){
     for(int i = 0; i < end; i++){
-      output[counter] = input[i];
+      output[counter] = data[i];
     }
   }
-    input = output;
+    data = output;
+    end = counter;
+    start = 0;
   }
   public void addFirst(E element){
     if(element == null){throw new NullPointerException();}
     if(size > 0){end++;}
     if(end == capacity){end = 0;}
-    if(Math.abs(end-start) == 1){resize(data);}
-    if(end >= capacity && start == 0){resize(data);}
+    if(Math.abs(end-start) == 1){resize();}
+    if(end >= capacity && start == 0){resize();}
     data[end] = element;
     size++;
   }
@@ -74,8 +76,8 @@ public class MyDeque<E>{
     if(element == null){throw new NullPointerException();}
     if(size > 0){start--;}
     if(size < 0){size = data.length - 1;}
-    if(Math.abs(end-start) == 1){resize(data);}
-    if(end+1 == capacity && start == 0){resize(data);}
+    if(Math.abs(end-start) == 1){resize();}
+    if(end+1 == capacity && start == 0){resize();}
     data[start] = element;
     size++;
   }
@@ -106,7 +108,7 @@ public class MyDeque<E>{
 
   public static void main(String args[]){
     MyDeque<Integer> deque = new MyDeque<>();
-    //deque.addFirst(10);
+    deque.addFirst(10);
     System.out.println(deque);
   }
 }
