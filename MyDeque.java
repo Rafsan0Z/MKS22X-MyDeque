@@ -65,6 +65,7 @@ public class MyDeque<E>{
   }
     data = output;
     end = counter;
+    capacity = (capacity+1)*2;
     start = 0;
   }
   public void addFirst(E element){
@@ -112,8 +113,9 @@ public class MyDeque<E>{
 
   public static void main(String args[]){
     MyDeque<Integer> deque = new MyDeque<>();
-    for(int i = 0; i < 5; i++){
-    deque.addFirst(5-i);
+    int limit = 12;
+    for(int i = 0; i < limit; i++){
+    deque.addFirst(limit-i);
   }
     System.out.println(deque);
   }
