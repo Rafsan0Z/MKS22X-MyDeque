@@ -46,12 +46,12 @@ public class MyDeque<E>{
     boolean finished = false;
     @SuppressWarnings("unchecked")
     E[] output = (E[])new Object[capacity*2];
-    for(int i = start; i < end; i++){
+    for(int i = start; i < capacity; i++){
       output[counter] = data[i];
       counter++;
-      if(i == capacity - 1){
+      if(i == end){
         finished = true;
-        i = end;
+        i = capacity;
       }
     }
     if(!finished){
