@@ -47,6 +47,7 @@ public class MyDeque<E>{
     @SuppressWarnings("unchecked")
     E[] output = (E[])new Object[capacity*2];
     for(int i = start; i < capacity; i++){
+      System.out.println(i + " " + counter);
       output[counter] = data[i];
       counter++;
       if(i == end){
