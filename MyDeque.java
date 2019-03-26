@@ -26,9 +26,16 @@ public class MyDeque<E>{
   }
   public String toString(){
     String result = "{";
+    boolean finished = false;
     for(int i = start; i < end; i++){
       result = data[i] + " ";
+      if(i == end - 1){finished = true;}
     }
+    if(!finished){
+    for(int i = 0; i < end; i++){
+        result += data[i] + " ";
+    }
+  }
     return result + "}";
   }
 
@@ -55,7 +62,7 @@ public class MyDeque<E>{
   }
   public void addLast(E element){
     if(element == null){throw new NullPointerException();}
-    start--;
+    if(size != 0){start--;}
     if(size < 0){size = data.length - 1;}
     if(Math.abs(end-start) == 1){resize(data);}
     if(end == data.length){end = 0;}
