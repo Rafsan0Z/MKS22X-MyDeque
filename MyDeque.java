@@ -65,10 +65,10 @@ public class MyDeque<E>{
   }
   public void addLast(E element){
     if(element == null){throw new NullPointerException();}
-    if(size != 0){start--;}
+    if(size > 0){start--;}
     if(size < 0){size = data.length - 1;}
     if(Math.abs(end-start) == 1){resize(data);}
-    if(end == data.length){end = 0;}
+    if(end+1 == capacity && start == 0){resize(data);}
     data[start] = element;
     size++;
   }
@@ -99,7 +99,7 @@ public class MyDeque<E>{
 
   public static void main(String args[]){
     MyDeque<Integer> deque = new MyDeque<>();
-    deque.addFirst(10);
+    //deque.addFirst(10);
     System.out.println(deque);
   }
 }
