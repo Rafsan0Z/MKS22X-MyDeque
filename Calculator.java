@@ -8,7 +8,9 @@ public class Calculator{
     while(read.hasNext()){
       String line = read.next();
       if(Operator(line)){
-        result += Operate(one,two,line);
+        double one = storage.removeFirst();
+        double two = storage.removeFirst();
+        result == Operate(one,two,line);
       }
       else{
         double box = Double.parseDouble(line);
