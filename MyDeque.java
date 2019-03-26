@@ -93,4 +93,8 @@ public class MyDeque<E>{
     if(size == 0){throw new NoSuchElementException();}
     return data[start];
   }
+
+  public static void main(String args[]){
+    MyDeque<Integer> deque = new MyDeque<>();
+  }
 }
