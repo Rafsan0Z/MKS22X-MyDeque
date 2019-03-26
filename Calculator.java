@@ -27,8 +27,12 @@ public class Calculator{
     else{return false;}
   }
 
-  private static int Operate(int one, int two, String line){
-
+  private static int Operate(double one, double two, String line){
+    if(line == "*"){return one * two;}
+    if(line == "-"){return one - two;}
+    if(line == "+"){return one + two;}
+    if(line == "/"){return one / two;}
+    if(line == "%"){return one % two;}
   }
 
 
