@@ -36,5 +36,9 @@ public class Calculator{
     return -1;
   }
 
+  public static void main(String args[]){
+    
+  }
+
 
 }
