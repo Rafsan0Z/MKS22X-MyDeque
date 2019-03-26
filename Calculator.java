@@ -37,7 +37,9 @@ public class Calculator{
   }
 
   public static void main(String args[]){
-    
+    String input = "12345**--//";
+    double output = eval(input);
+    System.out.println(output)
   }
 
 
