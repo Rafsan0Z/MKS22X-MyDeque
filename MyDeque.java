@@ -6,7 +6,7 @@ public class MyDeque<E>{
   public MyDeque(){
     @SuppressWarnings("unchecked")
     E[] d = (E[]) new Object[10];
-    size = 5;
+    size = 0;
     start = 0;
     end = 0;
     capacity = 10;
@@ -18,7 +18,7 @@ public class MyDeque<E>{
     @SuppressWarnings("unchecked")
     E[] d = (E[]) new Object[initialCapacity];
     data = d;
-    size = initialCapacity/2;
+    size = 0;
     start = 0;
     end = 0;
     capacity = initialCapacity;
@@ -47,7 +47,6 @@ public class MyDeque<E>{
     @SuppressWarnings("unchecked")
     E[] output = (E[])new Object[capacity*2];
     for(int i = start; i < capacity; i++){
-      System.out.println(i + " " + counter);
       output[counter] = data[i];
       counter++;
       if(i == end){
@@ -70,6 +69,7 @@ public class MyDeque<E>{
     if(end == capacity){end = 0;}
     if(Math.abs(end-start) == 1){resize();}
     if(end >= capacity && start == 0){resize();}
+    System.out.println(end + "" + element);
     data[end] = element;
     size++;
   }
