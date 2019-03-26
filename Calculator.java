@@ -5,8 +5,6 @@ public class Calculator{
     double result = 0;
     Scanner read  = new Scanner(s);
     MyDeque<Double> storage = new MyDeque<Double>();
-    int one = 0;
-    int two = 0;
     while(read.hasNext()){
       String line = read.next();
       if(Operator(line)){
@@ -33,6 +31,7 @@ public class Calculator{
     if(line == "+"){return one + two;}
     if(line == "/"){return one / two;}
     if(line == "%"){return one % two;}
+    return -1;
   }
 
 
