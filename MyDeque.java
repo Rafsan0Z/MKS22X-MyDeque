@@ -49,7 +49,7 @@ public class MyDeque<E>{
     int counter = 0;
     boolean finished = false;
     @SuppressWarnings("unchecked")
-    E[] output = (E[])new Object[capacity*2];
+    E[] output = (E[])new Object[(capacity+1)*2];
     for(int i = start; i < capacity; i++){
       output[counter] = data[i];
       counter++;
@@ -71,9 +71,8 @@ public class MyDeque<E>{
     if(element == null){throw new NullPointerException();}
     if(size > 0){end++;}
     if(end == capacity){end = 0;}
-    if(Math.abs(end-start) == 1){resize();}
+    if(end == start + 1){resize();}
     if(end >= capacity && start == 0){resize();}
-    System.out.println(end + "" + element);
     data[end] = element;
     size++;
   }
@@ -113,7 +112,9 @@ public class MyDeque<E>{
 
   public static void main(String args[]){
     MyDeque<Integer> deque = new MyDeque<>();
-    deque.addFirst(10);
+    for(int i = 0; i < 5; i++){
+    deque.addFirst(5-i);
+  }
     System.out.println(deque);
   }
 }
