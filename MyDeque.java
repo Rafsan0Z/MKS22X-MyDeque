@@ -1,7 +1,7 @@
 import java.util.*;
 public class MyDeque<E>{
   private E[] data;
-  private int size, start, end;
+  private int size, start, end, capacity;
 
   public MyDeque(){
     @SuppressWarnings("unchecked")
@@ -9,6 +9,7 @@ public class MyDeque<E>{
     size = 0;
     start = 0;
     end = 0;
+    capacity = 10;
   }
   public MyDeque(int initialCapacity){
     if(initialCapacity < 0){
@@ -20,6 +21,7 @@ public class MyDeque<E>{
     size = initialCapacity/2;
     start = 0;
     end = 0;
+    capacity = initialCapacityl;
   }
   public int size(){
     return size;
@@ -54,9 +56,10 @@ public class MyDeque<E>{
   }
   public void addFirst(E element){
     if(element == null){throw new NullPointerException();}
-    end++;
+    if(size > 0){end++;}
     if(end == data.length){end = 0;}
     if(Math.abs(end-start) == 1){resize(data);}
+    if(end > capacity && start == 0){resize(data);}
     data[end] = element;
     size++;
   }
