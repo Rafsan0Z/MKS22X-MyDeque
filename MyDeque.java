@@ -38,7 +38,7 @@ public class MyDeque<E>{
       }
     }
     if(!finished){
-    for(int i = 0; i < end; i++){
+    for(int i = 0; i <= end; i++){
         result += data[i] + " ";
     }
   }
@@ -59,7 +59,7 @@ public class MyDeque<E>{
       }
     }
     if(!finished){
-    for(int i = 0; i < end; i++){
+    for(int i = 0; i <= end; i++){
       output[counter] = data[i];
     }
   }
@@ -71,7 +71,7 @@ public class MyDeque<E>{
     if(element == null){throw new NullPointerException();}
     if(size > 0){end++;}
     if(end == capacity){end = 0;}
-    if(end == start + 1){resize();}
+    if(end == start - 1){resize();}
     if(end >= capacity && start == 0){resize();}
     data[end] = element;
     size++;
