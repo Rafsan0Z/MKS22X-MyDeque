@@ -42,17 +42,24 @@ public class MyDeque<E>{
   }
 
   public void resize(E[] input){
+    int counter = 0;
+    boolean finished = false;
     @SuppressWarnings("unchecked")
-    E[] d = (E[])new Object[size*2];
-    for(int i = start+1; i < input.length; i++){
-      data[i] = input[i-1];
+    E[] output = (E[])new Object[capacity*2];
+    for(int i = start; i < end; i++){
+      output[counter] = input[i];
+      counter++;
+      if(i == capacity - 1){
+        finished = true;
+        i = end;
+      }
     }
-    for(int i = 0; i <= end; i++){
-      data[i] = input[i];
+    if(!finished){
+    for(int i = 0; i < end; i++){
+      output[counter] = input[i];
     }
-    data = d;
-    size++;
-    start++;
+  }
+    input = output;
   }
   public void addFirst(E element){
     if(element == null){throw new NullPointerException();}
