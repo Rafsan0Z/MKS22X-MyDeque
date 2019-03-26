@@ -6,7 +6,7 @@ public class MyDeque<E>{
   public MyDeque(){
     @SuppressWarnings("unchecked")
     E[] d = (E[]) new Object[10];
-    size = 0;
+    size = 5;
     start = 0;
     end = 0;
     capacity = 10;
@@ -21,7 +21,7 @@ public class MyDeque<E>{
     size = initialCapacity/2;
     start = 0;
     end = 0;
-    capacity = initialCapacityl;
+    capacity = initialCapacity;
   }
   public int size(){
     return size;
@@ -57,9 +57,9 @@ public class MyDeque<E>{
   public void addFirst(E element){
     if(element == null){throw new NullPointerException();}
     if(size > 0){end++;}
-    if(end == data.length){end = 0;}
+    if(end == capacity){end = 0;}
     if(Math.abs(end-start) == 1){resize(data);}
-    if(end > capacity && start == 0){resize(data);}
+    if(end >= capacity && start == 0){resize(data);}
     data[end] = element;
     size++;
   }
@@ -99,5 +99,7 @@ public class MyDeque<E>{
 
   public static void main(String args[]){
     MyDeque<Integer> deque = new MyDeque<>();
+    deque.addFirst(10);
+    System.out.println(deque);
   }
 }
