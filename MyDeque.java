@@ -69,7 +69,12 @@ public class MyDeque<E>{
     start = 0;
   }
   public void addFirst(E element){
-    
+    if(start != 0){
+
+    }
+    else if(start == 0){
+
+    }
   }
   public void addLast(E element){
     if(element == null){throw new NullPointerException();}
