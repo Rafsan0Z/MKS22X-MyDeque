@@ -69,13 +69,7 @@ public class MyDeque<E>{
     start = 0;
   }
   public void addFirst(E element){
-    if(element == null){throw new NullPointerException();}
-    if(size > 0){end++;}
-    if(end == capacity){end = 0;}
-    if(end == start - 1){resize();}
-    if(end >= capacity && start == 0){resize();}
-    data[end] = element;
-    size++;
+    
   }
   public void addLast(E element){
     if(element == null){throw new NullPointerException();}
@@ -110,6 +104,7 @@ public class MyDeque<E>{
     if(size == 0){throw new NoSuchElementException();}
     return data[start];
   }
+
 
   public static void main(String args[]){
     MyDeque<Integer> deque = new MyDeque<>();
