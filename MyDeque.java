@@ -29,16 +29,16 @@ public class MyDeque<E>{
   }
   public String toString(){
     String result = "{";
-    boolean finished = false;
-    for(int i = start; i < capacity; i++){
+    boolean finished = true;
+    for(int i = start; i < end && finished; i++){
       result += data[i] + " ";
-      if(i == end){
-        finished = true;
-        i = capacity;
+      if(i+1 >= capacity){
+        finished = false;
+        i = end;
       }
     }
     if(!finished){
-    for(int i = 0; i <= end; i++){
+    for(int i = 0; i < end; i++){
         result += data[i] + " ";
     }
   }
@@ -69,14 +69,16 @@ public class MyDeque<E>{
     start = 0;
   }
   public void addFirst(E element){
+    if(data[start] == null){start++;}
     if(start != 0){
       if(end == start - 1){resize();}
       start--;
-      data[start] = element;
     }
     else if(start == 0){
-
+      if(end+1 == capacity){resize();}
+      start = capacity-1;
     }
+    data[start] = element;
     size++;
   }
   public void addLast(E element){
@@ -116,7 +118,7 @@ public class MyDeque<E>{
 
   public static void main(String args[]){
     MyDeque<Integer> deque = new MyDeque<>();
-    int limit = 12;
+    int limit = 1;
     for(int i = 0; i < limit; i++){
     deque.addFirst(limit-i);
   }
