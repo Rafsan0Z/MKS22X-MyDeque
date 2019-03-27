@@ -70,11 +70,14 @@ public class MyDeque<E>{
   }
   public void addFirst(E element){
     if(start != 0){
-
+      if(end == start - 1){resize();}
+      start--;
+      data[start] = element;
     }
     else if(start == 0){
 
     }
+    size++;
   }
   public void addLast(E element){
     if(element == null){throw new NullPointerException();}
