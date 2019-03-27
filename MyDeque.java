@@ -28,7 +28,21 @@ public class MyDeque<E>{
     return size;
   }
   public String toString(){
-    
+    String result = "{";
+    boolean finished = false;
+    for(int i = start; i < capacity; i++){
+      result += data[i] + " ";
+      if(i == end){
+        finished = true;
+        i = capacity;
+      }
+    }
+    if(!finished){
+    for(int i = 0; i <= end; i++){
+        result += data[i] + " ";
+    }
+  }
+    return result + "}";
   }
 
   public void resize(){
