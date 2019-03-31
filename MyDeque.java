@@ -60,17 +60,6 @@ public class MyDeque<E>{
     data = output;
   }
   public void addFirst(E element){
-    if (element == null){ throw new NullPointerException();}
-    if (start == 0){
-      start = capacity-size-1;
-    }
-    else if (size == capacity){
-      resize();
-      start = 0;
-    }
-    else{start--;}
-      data[start] = element;
-      size++;
   }
   public void addLast(E element){
   }
@@ -110,7 +99,7 @@ public class MyDeque<E>{
     MyDeque<Integer> deque = new MyDeque<>();
     deque.addFirst(5);
     deque.addFirst(6);
-    deque.addLast(10);
+    deque.addFirst(10);
     System.out.println(deque);
   }
 }
