@@ -70,7 +70,8 @@ public class MyDeque<E>{
     if(size == 0){throw new NoSuchElementException();}
     E result = getFirst();
     data[end] = null;
-    end--;
+    if(size != 1){end = capacity - 1;}
+    else if(end != 0){end--;}
     size--;
     return result;
   }
@@ -78,7 +79,10 @@ public class MyDeque<E>{
     if(size == 0){throw new NoSuchElementException();}
     E result = getLast();
     data[start] = null;
-    start--;
+    if(size != 1){
+      if(start+1 != capacity){start++;}
+      else{start = 0;}
+    }
     size--;
     return result;
   }
@@ -104,6 +108,8 @@ public class MyDeque<E>{
     deque.addFirst(6);
     deque.addLast(10);
     deque.addLast(20);
+    deque.removeLast();
+    deque.removeLast();
     System.out.println(deque);
   }
 }
