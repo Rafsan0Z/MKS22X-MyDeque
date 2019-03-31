@@ -34,8 +34,9 @@ public class MyDeque<E>{
   }
 
   public void resize(){
+    capacity++;
     @SuppressWarnings("unchecked")
-    E[] output = (E[])new Object[(capacity + 1) * 2];
+    E[] output = (E[])new Object[(capacity) * 2];
     int index;
     int counter;
     for(index = start, counter = 0; index != end; counter++, index++){
@@ -87,8 +88,8 @@ public class MyDeque<E>{
   public void addCheck(){
     if(size != 0){end++;}
     if(end == capacity){end = 0;}
-    if(start - end == 1){resize();}
-    else if(start == 0){resize();}
+    if(start - end == 1){resize(); return;}
+    else if(start == 0){resize(); return;}
     else if(capacity-1 <= end){resize();}
   }
 
