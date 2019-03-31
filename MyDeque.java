@@ -50,7 +50,7 @@ public class MyDeque<E>{
         counter++;
       }
     }
-    else{
+    else if(start >= end){
       for (int i = capacity-1; i >= 0; i--) {
         output[counter2] = data[i];
         counter2--;
@@ -72,7 +72,20 @@ public class MyDeque<E>{
       size++;
   }
   public void addLast(E element){
-
+    if (element == null){ throw new NullPointerException();}
+    if(size == capacity){
+      resize();
+      start = 0;
+      data[end] = element;
+    }
+    else if (data[capacity-1] != null){
+      resize();
+      start = 0;
+      data[end] = element;
+    }
+    else {data[end] = element;}
+      end++;
+      size++;
   }
   public E removeFirst(){
     if(size == 0){throw new NoSuchElementException();}
@@ -108,6 +121,9 @@ public class MyDeque<E>{
 
   public static void main(String args[]){
     MyDeque<Integer> deque = new MyDeque<>();
+    deque.addFirst(5);
+    deque.addFirst(6);
+    deque.addLast(10);
     System.out.println(deque);
   }
 }
