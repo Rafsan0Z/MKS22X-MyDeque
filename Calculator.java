@@ -5,9 +5,9 @@ public class Calculator{
   public static double eval(String s){
     double result = 0;
     Scanner read  = new Scanner(s);
+    read.useDelimiter("");
     MyDeque<Double> storage = new MyDeque<Double>();
     while(read.hasNext()){
-      System.out.println(read.next());
       String line = read.next();
       if(Operator(line)){
         double one = storage.removeFirst();
@@ -23,7 +23,7 @@ public class Calculator{
   }
 
   private static boolean Operator(String g){
-    if(g == "+" || g == "-" || g == "%" || g == "*" || g == "/"){
+    if(g.equals("+") || g.equals("-") || g.equals("%") || g.equals("*") || g.equals("/")){
       return true;
     }
     else{return false;}
