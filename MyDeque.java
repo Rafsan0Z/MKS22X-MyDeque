@@ -63,16 +63,7 @@ public class MyDeque<E>{
     start = 0;
   }
   public void addFirst(E element){
-    if(data[start] == null){start++;}
-    if(start != 0){
-      if(end == start - 1){resize();}
-      data[start] = element;
-    }
-    else{
-      if(end+1 == capacity){resize();}
-      data[start] = element;
-    }
-    size++;
+    
   }
   public void addLast(E element){
     if(element == null){throw new NullPointerException();}
