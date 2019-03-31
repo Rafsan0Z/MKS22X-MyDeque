@@ -81,21 +81,22 @@ public class MyDeque<E>{
     }
   }
   public void addLast(E element){
-    if(end == capacity - 1){
-      end = 0;
+    if(end == 0){
       data[end] = element;
       size++;
     }
-    else{
-      if(start == end - 1){
+    else if(end == capacity - 1){
+      if(start == 0){
         resize();
+        end++;
         data[end] = element;
         size++;
         return;
       }
-      end++;
+      end = 0;
       data[end] = element;
       size++;
+      return;
     }
   }
   public E removeFirst(){
