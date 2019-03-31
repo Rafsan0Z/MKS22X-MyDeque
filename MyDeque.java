@@ -81,8 +81,21 @@ public class MyDeque<E>{
     }
   }
   public void addLast(E element){
-    if(end == 0){
-
+    if(end == capacity - 1){
+      end = 0;
+      data[end] = element;
+      size++;
+    }
+    else{
+      if(start == end - 1){
+        resize();
+        data[end] = element;
+        size++;
+        return;
+      }
+      end++;
+      data[end] = element;
+      size++;
     }
   }
   public E removeFirst(){
@@ -121,9 +134,9 @@ public class MyDeque<E>{
     MyDeque<Integer> deque = new MyDeque<>();
     int limit = 5;
     System.out.println(" " + deque.getStart() + ", " + deque.getEnd());
-    deque.addFirst(5);
+    deque.addLast(5);
     System.out.println(" " + deque.getStart() + ", " + deque.getEnd());
-    deque.addFirst(6);
+    deque.addLast(6);
     System.out.println(" " + deque.getStart() + ", " + deque.getEnd());
     deque.addFirst(8);
     System.out.println(" " + deque.getStart() + ", " + deque.getEnd());
