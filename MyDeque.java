@@ -14,8 +14,8 @@ public class MyDeque<E>{
     E[] New = (E[]) new Object[initialCapacity];
     data = New;
     size = 0;
-    start = initialCapacity/2;
-    end = start;
+    start = 0;
+    end = 0;
     capacity = initialCapacity;
   }
   public int size(){
@@ -43,14 +43,14 @@ public class MyDeque<E>{
     int counter = 0;
     boolean finished = false;
     @SuppressWarnings("unchecked")
-    E[] output = (E[])new Object[(capacity+1)*2];
+    E[] output = (E[])new Object[capacity*2];
     for(int i = start; i < capacity; i++){
       output[counter] = data[i];
-      counter++;
       if(i == end){
         finished = true;
         i = capacity;
       }
+      counter++;
     }
     if(!finished){
     for(int i = 0; i <= end; i++){
@@ -59,19 +59,17 @@ public class MyDeque<E>{
   }
     data = output;
     end = counter;
-    capacity = (capacity+1)*2;
+    capacity = capacity*2;
     start = 0;
   }
   public void addFirst(E element){
     if(data[start] == null){start++;}
     if(start != 0){
       if(end == start - 1){resize();}
-      start--;
       data[start] = element;
     }
     else{
       if(end+1 == capacity){resize();}
-      start = capacity-1;
       data[start] = element;
     }
     size++;
@@ -113,10 +111,9 @@ public class MyDeque<E>{
 
   public static void main(String args[]){
     MyDeque<Integer> deque = new MyDeque<>();
-    int limit = 1;
-    for(int i = 0; i < limit; i++){
-    deque.addFirst(limit-i);
-  }
+    int limit = 5;
+    deque.addFirst(5);
+    deque.addFirst(6);
     System.out.println(deque);
   }
 }
