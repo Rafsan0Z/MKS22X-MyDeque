@@ -32,7 +32,7 @@ public class MyDeque<E>{
       }
     }
     if(!finished){
-    for(int i = 0; i <= end; i++){
+    for(int i = 0; i < end; i++){
         result += data[i] + " ";
     }
   }
