@@ -1,3 +1,4 @@
+import java.util.*;
 public class Calculator{
 
 
@@ -6,15 +7,16 @@ public class Calculator{
     Scanner read  = new Scanner(s);
     MyDeque<Double> storage = new MyDeque<Double>();
     while(read.hasNext()){
+      System.out.println(read.next());
       String line = read.next();
       if(Operator(line)){
         double one = storage.removeFirst();
         double two = storage.removeFirst();
-        result == Operate(one,two,line);
+        result = Operate(one,two,line);
       }
       else{
         double box = Double.parseDouble(line);
-        storage.addFirst(box)
+        storage.addFirst(box);
       }
     }
     return result;
@@ -27,7 +29,7 @@ public class Calculator{
     else{return false;}
   }
 
-  private static int Operate(double one, double two, String line){
+  private static double Operate(double one, double two, String line){
     if(line == "*"){return one * two;}
     if(line == "-"){return one - two;}
     if(line == "+"){return one + two;}
@@ -39,7 +41,7 @@ public class Calculator{
   public static void main(String args[]){
     String input = "12345**--//";
     double output = eval(input);
-    System.out.println(output)
+    System.out.println(output);
   }
 
 
