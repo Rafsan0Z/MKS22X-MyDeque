@@ -10,6 +10,7 @@ public class MyDeque<E>{
     if(initialCapacity < 0){
       throw new IllegalArgumentException();
     }
+    @SuppressWarnings("unchecked")
     E[] New = (E[]) new Object[initialCapacity];
     data = New;
     size = 0;
@@ -41,7 +42,7 @@ public class MyDeque<E>{
   public void resize(){
     @SuppressWarnings("unchecked")
     E[] output = (E[])new Object[(capacity + 1) * 2];
-    int index = 0;
+    int index;
     int counter = 0;
     for(index = start; index != end; index++){
       output[counter] = data[index];
@@ -60,7 +61,7 @@ public class MyDeque<E>{
     if(end == capacity){end = 0;}
     if(start - end == 1){resize();}
     else if(start == 0){resize();}
-    else if(end+1 >= capacity){resize();}
+    else if(capacity-1 <= end){resize();}
     data[end] = element;
     size++;
   }
