@@ -44,20 +44,18 @@ public class MyDeque<E>{
     E[] output = (E[])new Object[(size *2)+ 1];
     int counter = 0;
     int counter2 = output.length-1;
-    if (start >= end){
-      for (int i = capacity-1; i >= 0; i--) {
-        output[counter2] = data[i];
-        counter2--;
-      }
-    }
-
     if (start < end){
       for (int i = 0; i < end; i++){
         output[counter] = data[i];
         counter++;
       }
     }
-
+    else{
+      for (int i = capacity-1; i >= 0; i--) {
+        output[counter2] = data[i];
+        counter2--;
+      }
+    }
     data = output;
   }
   public void addFirst(E element){
