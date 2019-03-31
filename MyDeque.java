@@ -41,13 +41,12 @@ public class MyDeque<E>{
   public void resize(){
     @SuppressWarnings("unchecked")
     E[] output = (E[])new Object[(capacity + 1) * 2];
-    int index = start;
+    int index = 0;
     int counter = 0;
-    while(index != end){
+    for(index = start; index != end; index++){
       output[counter] = data[index];
-      index++;
       counter++;
-      if(index >= data.length){index = 0;}
+      if(index >= capacity){index = 0;}
     }
     if (size != 0){output[counter] = data[index];}
     data = output;
