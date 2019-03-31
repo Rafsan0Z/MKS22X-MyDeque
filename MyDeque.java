@@ -103,6 +103,7 @@ public class MyDeque<E>{
     deque.addFirst(5);
     deque.addFirst(6);
     deque.addLast(10);
+    deque.addLast(20);
     System.out.println(deque);
   }
 }
