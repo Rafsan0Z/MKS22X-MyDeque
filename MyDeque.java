@@ -23,19 +23,13 @@ public class MyDeque<E>{
   }
   public String toString(){
     String result = "{";
-    boolean finished = false;
-    for(int i = start; i < capacity; i++){
-      result += data[i] + " ";
-      if(i == end){
-        finished = true;
-        i = capacity;
-      }
+    int index;
+    for(index = start; index != end;){
+      result += data[index] + " ";
+      index++;
+      if(index >= capacity){index = 0;}
     }
-    if(!finished){
-    for(int i = 0; i < end; i++){
-        result += data[i] + " ";
-    }
-  }
+    if(size > 0){result += data[end] + " ";}
     return result + "}";
   }
 
