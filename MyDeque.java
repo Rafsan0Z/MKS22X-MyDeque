@@ -50,19 +50,13 @@ public class MyDeque<E>{
   }
   public void addFirst(E element){
     if(element == null){throw new NullPointerException();}
-    if(size != 0){end++;}
-    if(end == capacity){end = 0;}
-    if(start - end == 1){resize();}
-    else if(start == 0){resize();}
-    else if(capacity-1 <= end){resize();}
+    addCheck();
     data[end] = element;
     size++;
   }
   public void addLast(E element){
     if (element == null){throw new NullPointerException();}
-    if (size != 0){start--;}
-    if (start < 0){start = capacity-1;}
-    if (start - end == 1 || (start == 0 && end == data.length-1) || data.length == 0){resize();}
+    AddCheck();
     data[start] = element;
     size++;
   }
@@ -70,11 +64,10 @@ public class MyDeque<E>{
     if(size == 0){throw new NoSuchElementException();}
     E result = getFirst();
     data[end] = null;
-    if(size != 1){end = capacity - 1;}
-    else if(end != 0){end--;}
-    size--;
+    RemoveEnd();
     return result;
   }
+
   public E removeLast(){
     if(size == 0){throw new NoSuchElementException();}
     E result = getLast();
@@ -89,6 +82,20 @@ public class MyDeque<E>{
       else{start = 0;}
     }
     size--;
+  }
+
+  public void addCheck(){
+    if(size != 0){end++;}
+    if(end == capacity){end = 0;}
+    if(start - end == 1){resize();}
+    else if(start == 0){resize();}
+    else if(capacity-1 <= end){resize();}
+  }
+
+  public void AddCheck(){
+    if (size != 0){start--;}
+    if (start < 0){start = capacity-1;}
+    if (start - end == 1 || (start == 0 && end == data.length-1) || data.length == 0){resize();}
   }
 
   public void RemoveEnd(){
