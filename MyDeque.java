@@ -4,13 +4,7 @@ public class MyDeque<E>{
   private int size, start, end, capacity;
 
   public MyDeque(){
-    @SuppressWarnings("unchecked")
-    E[] New = (E[]) new Object[10];
-    data = New;
-    size = 0;
-    start = 0;
-    end = 0;
-    capacity = 10;
+    this(10);
   }
   public MyDeque(int initialCapacity){
     if(initialCapacity < 0){
@@ -20,8 +14,8 @@ public class MyDeque<E>{
     E[] New = (E[]) new Object[initialCapacity];
     data = New;
     size = 0;
-    start = 0;
-    end = 0;
+    start = initialCapacity/2;
+    end = start;
     capacity = initialCapacity;
   }
   public int size(){
@@ -73,12 +67,13 @@ public class MyDeque<E>{
     if(start != 0){
       if(end == start - 1){resize();}
       start--;
+      data[start] = element;
     }
-    else if(start == 0){
+    else{
       if(end+1 == capacity){resize();}
       start = capacity-1;
+      data[start] = element;
     }
-    data[start] = element;
     size++;
   }
   public void addLast(E element){
