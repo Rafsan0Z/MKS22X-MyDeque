@@ -66,6 +66,12 @@ public class MyDeque<E>{
     size++;
   }
   public void addLast(E element){
+    if (element == null){throw new NullPointerException();}
+    if (size != 0){start--;}
+    if (start < 0){start = capacity-1;}
+    if (start - end == 1 || (start == 0 && end == data.length-1) || data.length == 0){resize();}
+    data[start] = element;
+    size++;
   }
   public E removeFirst(){
     if(size == 0){throw new NoSuchElementException();}
@@ -103,7 +109,7 @@ public class MyDeque<E>{
     MyDeque<Integer> deque = new MyDeque<>();
     deque.addFirst(5);
     deque.addFirst(6);
-    deque.addFirst(10);
+    deque.addLast(10);
     System.out.println(deque);
   }
 }
