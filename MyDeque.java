@@ -81,7 +81,9 @@ public class MyDeque<E>{
     }
   }
   public void addLast(E element){
-  
+    if(end == 0){
+
+    }
   }
   public E removeFirst(){
     if(size == 0){throw new NoSuchElementException();}
@@ -107,14 +109,24 @@ public class MyDeque<E>{
     if(size == 0){throw new NoSuchElementException();}
     return data[start];
   }
+  public int getStart(){
+    return start;
+  }
 
+  public int getEnd(){
+    return end;
+  }
 
   public static void main(String args[]){
     MyDeque<Integer> deque = new MyDeque<>();
     int limit = 5;
+    System.out.println(" " + deque.getStart() + ", " + deque.getEnd());
     deque.addFirst(5);
+    System.out.println(" " + deque.getStart() + ", " + deque.getEnd());
     deque.addFirst(6);
+    System.out.println(" " + deque.getStart() + ", " + deque.getEnd());
     deque.addFirst(8);
+    System.out.println(" " + deque.getStart() + ", " + deque.getEnd());
     System.out.println(deque);
   }
 }
