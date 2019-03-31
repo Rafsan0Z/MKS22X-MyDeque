@@ -91,6 +91,12 @@ public class MyDeque<E>{
     size--;
   }
 
+  public void RemoveEnd(){
+    if(size != 1){end = capacity - 1;}
+    else if(end != 0){end--;}
+    size--;
+  }
+
   public E getFirst(){
     if(size == 0){throw new NoSuchElementException();}
     return data[end];
