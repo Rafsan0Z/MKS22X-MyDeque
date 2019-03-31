@@ -43,10 +43,9 @@ public class MyDeque<E>{
     @SuppressWarnings("unchecked")
     E[] output = (E[])new Object[(capacity + 1) * 2];
     int index;
-    int counter = 0;
-    for(index = start; index != end; index++){
+    int counter;
+    for(index = start, counter = 0; index != end; counter++, index++){
       output[counter] = data[index];
-      counter++;
       if(index >= capacity){index = 0;}
     }
     if (size != 0){output[counter] = data[index];}
