@@ -36,20 +36,27 @@ public class MyDeque<E>{
   public void resize(){
     @SuppressWarnings("unchecked")
     E[] output = (E[])new Object[capacity+1];
+    int[] set = ResizeLoop(output,data);
+    if (size != 0){output[set[0]] = data[set[1]];}
+    data = output;
+    start = 0;
+    end = set[0];
+    capacity++;
+  }
+
+  public int[] ResizeLoop(E[] set, E[] orig){
     int index = start;
     int counter = 0;
     while(index != end){
-      output[counter] = data[index];
+      set[counter] = orig[index];
       counter++;
       index++;
       if(index >= capacity){index = 0;}
     }
-    if (size != 0){output[counter] = data[index];}
-    data = output;
-    start = 0;
-    end = counter;
-    capacity = output.length;
+    int[] result = new int[] {counter, index};
+    return result;
   }
+
   public void addFirst(E element){
     if(element == null){throw new NullPointerException();}
     addCheck();
