@@ -34,14 +34,13 @@ public class MyDeque<E>{
   }
 
   public void resize(){
-    capacity++;
     @SuppressWarnings("unchecked")
-    E[] output = (E[])new Object[(capacity) * 2];
+    E[] output = (E[])new Object[(capacity+1) * 2];
     int index;
     int counter;
     for(index = start, counter = 0; index != end; counter++, index++){
-      output[counter] = data[index];
       if(index >= capacity){index = 0;}
+      output[counter] = data[index];
     }
     if (size != 0){output[counter] = data[index];}
     data = output;
@@ -94,9 +93,9 @@ public class MyDeque<E>{
   }
 
   public void AddCheck(){
-    if (size != 0){start--;}
-    if (start < 0){start = capacity-1;}
     if (start - end == 1 || (start == 0 && end == data.length-1) || data.length == 0){resize();}
+    if (size != 0){start--;}
+    if (start == -1){start = capacity-1;}
   }
 
   public void RemoveEnd(){
@@ -123,12 +122,10 @@ public class MyDeque<E>{
 
   public static void main(String args[]){
     MyDeque<Integer> deque = new MyDeque<>();
-    deque.addFirst(5);
-    deque.addFirst(6);
-    deque.addLast(10);
-    deque.addLast(20);
-    deque.removeLast();
-    deque.removeLast();
+    for(int i = 1; i < 12; i++){
+      //deque.addFirst(i);
+      deque.addLast(i);
+    }
     System.out.println(deque);
   }
 }
