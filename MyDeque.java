@@ -79,13 +79,18 @@ public class MyDeque<E>{
     if(size == 0){throw new NoSuchElementException();}
     E result = getLast();
     data[start] = null;
+    RemoveStart();
+    return result;
+  }
+
+  public void RemoveStart(){
     if(size != 1){
       if(start+1 != capacity){start++;}
       else{start = 0;}
     }
     size--;
-    return result;
   }
+
   public E getFirst(){
     if(size == 0){throw new NoSuchElementException();}
     return data[end];
