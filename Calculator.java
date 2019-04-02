@@ -11,16 +11,17 @@ public class Calculator{
       boolean test = read.hasNextDouble();
       if(!test){
         String line = read.next();
-        double two = storage.removeFirst();
-        double one = storage.removeFirst();
+        double two = storage.removeLast();
+        double one = storage.removeLast();
         result = Operate(one,two,line);
+        storage.addLast(result);
       }
       else{
         double box = read.nextDouble();
-        storage.addFirst(box);
+        storage.addLast(box);
       }
     }
-    return result;
+    return storage.getLast();
   }
 
   public static boolean isDouble(String str) {
