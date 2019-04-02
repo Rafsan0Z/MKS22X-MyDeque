@@ -70,7 +70,6 @@ public class MyDeque<E>{
     size++;
   }
   public E removeFirst(){
-    if(size == 0){throw new NoSuchElementException();}
     E result = getFirst();
     data[end] = null;
     RemoveEnd();
@@ -78,7 +77,6 @@ public class MyDeque<E>{
   }
 
   public E removeLast(){
-    if(size == 0){throw new NoSuchElementException();}
     E result = getLast();
     data[start] = null;
     RemoveStart();
@@ -108,8 +106,8 @@ public class MyDeque<E>{
   }
 
   public void RemoveEnd(){
-    if(size != 1){end = capacity - 1;}
-    else if(end != 0){end--;}
+    if(end != 0){end--;}
+    else if(size != 1){end = capacity - 1;}
     size--;
   }
 
