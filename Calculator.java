@@ -5,25 +5,25 @@ public class Calculator{
   public static double eval(String s){
     double result = 0;
     Scanner read  = new Scanner(s);
-    read.useDelimiter("");
+    read.useDelimiter(" ");
     MyDeque<Double> storage = new MyDeque<Double>();
     while(read.hasNext()){
-      String line = read.next();
-      if(Operator(line)){
-        double one = storage.removeFirst();
+      boolean test = read.hasNextDouble();
+      if(!test){
+        String line = read.next();
         double two = storage.removeFirst();
+        double one = storage.removeFirst();
         result = Operate(one,two,line);
       }
       else{
-        double box = Double.parseDouble(line);
+        double box = read.nextDouble();
         storage.addFirst(box);
       }
-      System.out.println(storage);
     }
     return result;
   }
 
-  public boolean isDouble(String str) {
+  public static boolean isDouble(String str) {
     try {
         Double.parseDouble(str);
         return true;
@@ -49,7 +49,7 @@ public class Calculator{
   }
 
   public static void main(String args[]){
-    String input = "1 -2 +";
+    String input = "11 3 - 4 + 2.5 *";
     double output = eval(input);
     System.out.println(output);
   }
