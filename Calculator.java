@@ -13,10 +13,12 @@ public class Calculator{
         double one = storage.removeFirst();
         double two = storage.removeFirst();
         result = Operate(one,two,line);
+        if(read.hasNext()){line = read.next();}
       }
       else{
         double box = Double.parseDouble(line);
         storage.addFirst(box);
+        if(read.hasNext()){line = read.next();}
       }
       System.out.println(storage);
     }
@@ -40,7 +42,7 @@ public class Calculator{
   }
 
   public static void main(String args[]){
-    String input = "12+";
+    String input = "1 -2 +";
     double output = eval(input);
     System.out.println(output);
   }
