@@ -18,6 +18,7 @@ public class Calculator{
         double box = Double.parseDouble(line);
         storage.addFirst(box);
       }
+      System.out.println(storage);
     }
     return result;
   }
@@ -30,16 +31,16 @@ public class Calculator{
   }
 
   private static double Operate(double one, double two, String line){
-    if(line == "*"){return one * two;}
-    if(line == "-"){return one - two;}
-    if(line == "+"){return one + two;}
-    if(line == "/"){return one / two;}
-    if(line == "%"){return one % two;}
+    if(line.equals("*")){return one * two;}
+    if(line.equals("-")){return one - two;}
+    if(line.equals("+")){return one + two;}
+    if(line.equals("/")){return one / two;}
+    if(line.equals("%")){return one % two;}
     return -1;
   }
 
   public static void main(String args[]){
-    String input = "12345**--//";
+    String input = "12+";
     double output = eval(input);
     System.out.println(output);
   }
