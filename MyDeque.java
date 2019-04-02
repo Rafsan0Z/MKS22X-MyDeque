@@ -100,7 +100,9 @@ public class MyDeque<E>{
   }
 
   public void AddCheck(){
-    if (start - end == 1 || (start == 0 && end == data.length-1) || data.length == 0){resize();}
+    if (start - end == 1){resize();}
+    else if ((start == 0 && end == data.length-1)) {resize();}
+    else if (data.length == 0) {resize();}
     if (size != 0){start--;}
     if (start == -1){start = capacity-1;}
   }
