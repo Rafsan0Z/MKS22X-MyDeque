@@ -13,17 +13,24 @@ public class Calculator{
         double one = storage.removeFirst();
         double two = storage.removeFirst();
         result = Operate(one,two,line);
-        if(read.hasNext()){line = read.next();}
       }
       else{
         double box = Double.parseDouble(line);
         storage.addFirst(box);
-        if(read.hasNext()){line = read.next();}
       }
       System.out.println(storage);
     }
     return result;
   }
+
+  public boolean isDouble(String str) {
+    try {
+        Double.parseDouble(str);
+        return true;
+    } catch(NumberFormatException e) {
+        return false;
+    }
+}
 
   private static boolean Operator(String g){
     if(g.equals("+") || g.equals("-") || g.equals("%") || g.equals("*") || g.equals("/")){
